@@ -1,0 +1,446 @@
+@font-face {
+	font-family: 'Mouse Memoirs';
+	src: url('../assets/fonts/MouseMemoirs/MouseMemoirs-Regular.woff2') format('woff2'),
+		url('../assets/fonts/MouseMemoirs/MouseMemoirs-Regular.woff') format('woff');
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Comic Neue';
+	src: url('../assets/fonts/ComicNeue/ComicNeue-Regular.woff2') format('woff2'),
+		url('../assets/fonts/ComicNeue/ComicNeue-Regular.woff') format('woff');
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}
+
+svg {
+  pointer-events: none;
+}
+
+h3,
+h1 {
+  margin-bottom: 0px;
+}
+
+* {
+  letter-spacing: 1.2px;
+  box-sizing: border-box;
+  font-family: 'Comic Neue', sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+canvas {
+  position: absolute;
+  /* background: #673147; */
+  background: #874c62;
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.btn {
+  outline: none;
+  cursor: pointer;
+  background: none;
+  font-size: 1.1rem;
+  border: none;
+  color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1250px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.app__view-switch {
+  margin-bottom: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-controls {
+  padding: 10px 25px;
+  width: 140px;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.active-view {
+  background-color: rgba(255, 255, 255);
+  color: black;
+}
+
+.app__title {
+  color: #fff;
+}
+
+.app__page {
+  color: #fff;
+}
+
+.garage__list {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-height: 590px;
+}
+
+.garage__track {
+  display: flex;
+  position: relative;
+  height: 80px;
+  border-bottom: 5px dotted #fff;
+  background-color: rgba(51, 24, 1, 0.5);
+}
+
+.garage__track::after {
+  content: '';
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  background-image: url(../assets/img/finish.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  right: 130px;
+  top: 0;
+  z-index: -1;
+}
+
+.garage__controls {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.garage__name {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.garage__change {
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.garage__change > button:hover {
+  transform: scale(1.2);
+}
+
+.garage__change > button {
+  transition: all 0.3s ease-in-out;
+}
+
+.garage__go,
+.garage__stop {
+  padding: 5px 10px;
+  width: 80px;
+  border: 1px solid #fff;
+}
+
+.garage__go {
+  background-color:	#33b249;
+  border-color:	#33b249;
+}
+
+.garage__stop {
+  border-color: #fff;
+}
+
+.form {
+  width: 400px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__btn {
+  min-width: 80px;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+}
+
+.form__input {
+  height: 100%;
+  min-width: 255px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  background-color: rgba(51, 24, 1, 0.5);
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.garage__add,
+.garage__race {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.form__race:active {
+  background-color: #f7c82c;
+  border-color: #f7c82c;
+}
+
+input::placeholder {
+  color: rgb(229, 222, 222);
+}
+
+.form__race {
+  background-color: #FFC300;
+  border-color: #FFC300;
+}
+
+.garage__pgn {
+  display: none;
+  text-align: center;
+  color: #fff;
+}
+
+.garage__pgn span {
+  cursor: pointer;
+}
+
+.app__score{
+  display: flex;
+  flex-direction: column;
+  top: 65px;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  position: absolute;
+  padding: 15px;
+  background-color: rgb(91 60 60);
+  visibility: hidden;
+}
+
+.app__score.visible {
+  visibility: visible;
+}
+
+.app__score-table {
+  margin-bottom: 30px;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.app__score .app__pgn{
+  margin-top: auto;
+  background: none;  
+}
+
+tr {
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+.app__pgn {
+  background-color: rgba(51, 24, 1, 0.5);
+  text-align: center;
+}
+
+.app__pgn > span {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.pgn-active {
+  color: #FFC300 !important;
+}
+
+button:disabled {
+  border-color:dimgrey;
+  color: dimgrey;
+  pointer-events: none;
+}
+
+button:active {
+  border-color:  #FFC300;
+}
+
+.hidden-btn {
+  display: none;
+}
+
+.garage__add {
+  position: relative;
+}
+
+.form__update {
+  position: absolute;
+  right: -90px;
+}
+
+/* .update-mode::after {
+  top: 115px;
+  position: absolute;
+  content: '';
+  width: 1380px;
+  height: 710px;
+  background-color: rgba(158, 144, 131, 0.5);
+} */
+
+.selected-track {
+  background-color: rgba(221, 181, 4, 0.5);
+}
+
+.garage__vehicle {
+  position: relative;
+}
+
+.garage__vehicle-msg {
+  top: 5px;
+  right: -80%;
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  border: #000;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 4, 0.5) 5px 5px; 
+  z-index: 3;
+  min-width: 90px;
+  text-align: center;
+}
+
+.garage__vehicle-msg::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent #fff;
+}
+
+.show-message .garage__vehicle-msg {
+  display: block;
+}
+
+th[role="button"] {
+  cursor: pointer;
+}
+
+th[role="button"] > span {
+  background-image: url(../assets/img/blackArrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: sub;
+  animation: all 1s ease-in-out;
+}
+
+.active-sort > span {
+  background-image: url(../assets/img/greenArrowN.svg)!important; 
+}
+
+.active-sort.reverse-order > span {
+  transform: rotateX(180deg); 
+}
+
+.modal {
+  width: 100%;
+  position: absolute;
+  top: 170px;
+  text-align: center;
+}
+
+.modal__text {
+  color: cyan;
+  margin-bottom: 0px;
+  font-size: 2.2rem;
+  animation: changeColor;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.modal__small {
+  color: #fff;
+  font-size: 1rem;
+}
+
+@keyframes changeColor {
+  20% {
+    color: yellow;
+  }
+  40% {
+    color: red;
+  }
+  60% {
+    color: blue;
+  }
+  80% {
+    color: green;
+  }
+  100% {
+    color: orangered;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    font-size: 1rem;
+  }
+
+  .app__view-switch {
+    margin-bottom: 10px;
+  }
+
+  .btn-controls {
+    padding: 10px;
+    width: 100px;
+  }
+
+  .form {
+    width: auto;
+    align-items: center;
+  }
+
+  .form__input {
+    font-size: 0.8rem;
+    min-width: auto;
+  }
+
+  .garage__add, .garage__race {
+    gap: 10px
+  }
+
+  .app__title {
+    font-size: 1.5rem;
+  }
+
+
+}
