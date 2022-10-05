@@ -1,5 +1,6 @@
 # RS Schooll async-race task
 The App link: https://rolling-scopes-school.github.io/rmnvch-JSFE2022Q1/async-race/
+<br>Short video introduction link: https://youtu.be/7rQAaLyUPsw
 <br>
 <br>This App is a Single Page Application. This task's aim was to boost students' skills in communication with a server (fetch, REST API), async coding / Promises, JS animations. In addition to that the app also implements basics of CRUD apps. 
 <h3>Overall description</h3>
